@@ -19,18 +19,20 @@ function start() {
 }
 start();
 
-if (personalMovieDB.count > 0 && personalMovieDB.count < 10) {
-  alert("Watched a fairly small number of movies");
-} else if (personalMovieDB.count > 10 && personalMovieDB.count < 20) {
-  alert("You're a classic viewer");
-} else if (personalMovieDB.count > 20) {
-  alert("You're a movie geek");
-} else if (personalMovieDB.count === 0) {
-  alert(
-    "You haven't watched any movies,  you can't use the movie library, come back after you've watched some movies"
-  );
+function classifyMovieFan() {
+  if (personalMovieDB.count > 0 && personalMovieDB.count < 10) {
+    alert("Watched a fairly small number of movies");
+  } else if (personalMovieDB.count > 10 && personalMovieDB.count < 20) {
+    alert("You're a classic viewer");
+  } else if (personalMovieDB.count > 20) {
+    alert("You're a movie geek");
+  } else if (personalMovieDB.count === 0) {
+    alert(
+      "You haven't watched any movies,  you can't use the movie library, come back after you've watched some movies"
+    );
+  }
 }
-
+classifyMovieFan();
 for (let i = 0; i < 2; i++) {
   if (personalMovieDB.count === 0) {
     break;

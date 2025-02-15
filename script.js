@@ -1,5 +1,5 @@
 "use strict";
-const numberOfFilms = +prompt(`How many movies you already watched?`, "");
+let numberOfFilms;
 
 const personalMovieDB = {
   count: numberOfFilms,
@@ -8,6 +8,17 @@ const personalMovieDB = {
   genres: [],
   privat: false,
 };
+
+function start() {
+  numberOfFilms = prompt(`How many movies you already watched?`, "");
+  while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+    alert("You must enter the number, you cannot cancel the question =)");
+    numberOfFilms = prompt(`How many movies you already watched?`, "");
+  }
+  console.log("it's all good");
+}
+start();
+
 if (personalMovieDB.count > 0 && personalMovieDB.count < 10) {
   alert("Watched a fairly small number of movies");
 } else if (personalMovieDB.count > 10 && personalMovieDB.count < 20) {
@@ -18,17 +29,6 @@ if (personalMovieDB.count > 0 && personalMovieDB.count < 10) {
   alert(
     "You haven't watched any movies,  you can't use the movie library, come back after you've watched some movies"
   );
-} else {
-  alert("Error");
-  for (let i = 0; i < 1; i++) {
-    personalMovieDB.count = +prompt(`How many movies you already watched?`, "");
-    if (personalMovieDB.count != NaN && personalMovieDB.count > 0) {
-      console.log("it's all good");
-    } else {
-      alert("You must enter the number, you cannot cancel the question =)");
-      i--;
-    }
-  }
 }
 
 for (let i = 0; i < 2; i++) {

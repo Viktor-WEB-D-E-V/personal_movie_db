@@ -34,9 +34,9 @@ function classifyMovieFan() {
 }
 classifyMovieFan();
 
-function addFilmToList() {
-  for (let i = 0; i < 2; i++) {
-    if (personalMovieDB.count === 0) {
+function filmCountCheck(count) {
+  for (let i = 0; i < count; i++) {
+    if (count === 0) {
       break;
     }
     const movie = prompt(`One of the last films you watched?`, ""),
@@ -59,5 +59,27 @@ function addFilmToList() {
   }
 }
 
-addFilmToList();5
-console.log(personalMovieDB);
+function addFilmToList() {
+  if (personalMovieDB.count >= 2) {
+    filmCountCheck(2);
+  } else if (personalMovieDB.count < 2 && personalMovieDB.count > 0) {
+    filmCountCheck(personalMovieDB.count);
+  }
+}
+addFilmToList();
+
+function enterFavoriteGenres() {
+  for (let i = 0; i < 3; i++) {
+    const genre = prompt(`What is your number ${i + 1} favorite genre?`);
+    personalMovieDB.genres[i] = genre;
+  }
+}
+enterFavoriteGenres();
+
+function showMyDB(hidden) {
+  if (!hidden) {
+    console.log(personalMovieDB);
+  }
+}
+
+showMyDB(personalMovieDB.privat);

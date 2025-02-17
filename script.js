@@ -67,9 +67,19 @@ const personalMovieDB = {
   },
   enterFavoriteGenres: function () {
     for (let i = 0; i < 3; i++) {
-      const genre = prompt(`What is your number ${i + 1} favorite genre?`);
-      personalMovieDB.genres[i] = genre;
+      const genre = prompt(
+        `What is your number ${i + 1} favorite genre?`
+      ).toLocaleLowerCase();
+      if (genre !== "" && genre !== null) {
+        personalMovieDB.genres[i] = genre;
+      } else {
+        alert("You write incorrect data or do not write anything at all");
+        i--;
+      }
     }
+    personalMovieDB.genres.forEach((genre, i) =>
+      console.log(`Your favorite genre ${i + 1} - ${genre}`)
+    );
   },
   toggleVisibleMyDB() {
     if (personalMovieDB.privat) {

@@ -71,6 +71,13 @@ const personalMovieDB = {
       personalMovieDB.genres[i] = genre;
     }
   },
+  toggleVisibleMyDB() {
+    if (personalMovieDB.privat) {
+      personalMovieDB.privat = false;
+    } else {
+      personalMovieDB.privat = true;
+    }
+  },
   showMyDB: function (hidden) {
     if (!hidden) {
       console.log(personalMovieDB);

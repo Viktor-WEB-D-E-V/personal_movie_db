@@ -33,7 +33,7 @@ const personalMovieDB = {
       if (count === 0) {
         break;
       }
-      const movie = prompt(`One of the last films you watched?`, ""),
+      const movie = prompt(`One of the last films you watched?`, "").trim(),
         rate = prompt(`How do you rate this film?`, "");
       if (
         movie != null &&
